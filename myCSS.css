@@ -1,0 +1,15 @@
+.red {
+    color: rgba(255, 0, 0, 1);
+}
+
+.blue {
+    color: rgba(0, 0, 255, 1);
+}
+
+.gray {
+    color: rgba(64, 64, 64, 1);
+}
+
+.italic {
+    font-style: italic;
+}
