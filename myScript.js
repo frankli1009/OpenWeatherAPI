@@ -16,12 +16,14 @@ function getWeather() {
         $pHigh = $("<p>");
         $pHigh.text( data.list[0].temp.max );
         $pHigh.addClass("red");
+        $("#highToday *").remove();
         $("#highToday").append($pHigh);
         
         //$("#lowToday").html("<p class='blue'>"+data.list[0].temp.min+"</p>");
         $pLow = $("<p>");
         $pLow.text(data.list[0].temp.min);
         $pLow.addClass("blue");
+        $("#lowToday *").remove();
         $("#lowToday").append($pLow);
         
         //$("#dayDescription").html("<p class='gray italic'>"+data.list[0].weather[0].description+"</p>");
@@ -29,13 +31,12 @@ function getWeather() {
         $pDesc.text(data.list[0].weather[0].description);
         $pDesc.addClass("gray");
         $pDesc.addClass("italic");
+        $("#dayDescription *").remove();
         $("#dayDescription").append($pDesc);
         
         var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        var D = [];
         for (var i=1; i<=3; i++) {
-            D.push(new Date(data.list[i].dt * 1000));
-            var dd = D[i-1];
+            var dd = new Date(data.list[i].dt * 1000);
             $("#r"+(i)+"c1").html(days[dd.getDay()]);
             $("#r"+(i)+"c2").attr("src", "http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+
         ".png");
